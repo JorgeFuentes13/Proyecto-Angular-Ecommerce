@@ -7,14 +7,17 @@ import { NavInferiorComponent } from './components/nav-inferior/nav-inferior.com
 import { LoginComponent } from './components/login/login.component';
 import { CarritoComponent } from './components/carrito/carrito.component';
 
+
+
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [CommonModule,
             RouterOutlet, 
-            NavComponent,ProductsComponent,
+            NavComponent,
             NavInferiorComponent,
-            LoginComponent,CarritoComponent,ProductsComponent],
+            LoginComponent,
+            CarritoComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

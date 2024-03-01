@@ -1,25 +1,16 @@
-<div class="container-md pt-5">
-  <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner" >
-      <div class="carousel-item" *ngFor="let producto of productos.slice(0, cantidadProductos)">
-        <div class="card" style="width: 18rem;">
-            <img src="" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">{{producto.nombre}}</h5>
-              <p class="card-text">{{producto.detalle}}</p>
-              <p class="card-text">Precio: {{ producto.precio }}</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
+<div class="container-lg">
+  <div class="row pt-4">
+    <div class="col-sm-4 col-md-2 pt-3" *ngFor="let producto of productos.slice(0, cantidadProductos)">
+      <div class="card pt-3">
+        <img src="{{producto.image}}" class="card-img-top" alt="">
+        <div class="card-body">
+          <h5 class="card-title text-center">{{producto.nombre}}</h5>
+          <p class="card-text">{{producto.descripcion}}</p>
+          <div class="d-flex justify-content-center">
+          <a href="detalles-producto/{{producto.id}}" class="btn btn-primary">Comprar</a>
           </div>
         </div>
+      </div>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
   </div>
 </div>

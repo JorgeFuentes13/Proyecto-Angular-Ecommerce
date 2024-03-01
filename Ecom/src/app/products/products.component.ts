@@ -1,5 +1,8 @@
-import { Component,Input } from '@angular/core';
+import { Component,Input,OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ProductService } from '../service/products.service';
+
+
 
 @Component({
   selector: 'app-products',
@@ -8,21 +11,21 @@ import { CommonModule } from '@angular/common';
   templateUrl: './products.component.html',
   styleUrl: './products.component.css'
 })
-export class ProductsComponent {
+export class ProductsComponent implements OnInit {
 
-  @Input() cantidadProductos: any;
+  productos: any= [];
+
+  @Input() cantidadProductos: number=0;
   // Supongamos que tienes una lista de productos
-  productos: any[] = [
-    { nombre: 'Producto 1', precio: 10, descripción: 'El mejor producto de..' },
-    { nombre: 'Producto 2', precio: 20 ,descripción: 'El mejor producto de..' },
-    { nombre: 'Producto 3', precio: 10, descripción: 'El mejor producto de..' },
-    { nombre: 'Producto 4', precio: 20 ,descripción: 'El mejor producto de..' },
-    { nombre: 'Producto 5', precio: 20 ,descripción: 'El mejor producto de..' },
-    // Otros productos...
-  ];
-
-  constructor() { }
-
   
+    // Otros productos...
 
+    constructor(private productService: ProductService) { }
+    
+
+    ngOnInit(): void {
+      this.productService.getProductos().subscribe(data => {
+        this.productos = data;
+      });
+  }
 }
